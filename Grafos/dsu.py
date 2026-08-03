@@ -1,7 +1,3 @@
-# Union-Find (Disjoint Set Union - DSU)
-# Estrutura para gerenciar conjuntos disjuntos, com duas operações principais:
-# find (descobrir a qual conjunto um elemento pertence)
-# union (unir dois conjuntos)
 class UnionFind:
     def __init__(self, n):
         self.pai = list(range(n)) # cada elemento começa sendo seu próprio representante
@@ -56,17 +52,17 @@ def main():
     uf.union(1, 2)
     uf.union(3, 4)
 
-    print(uf.conectados(0, 2))
-    print(uf.conectados(0, 3))
-    print(uf.find(0) == uf.find(1) == uf.find(2))
+    print("Mesmo conjunto?", uf.conectados(0, 2))
+    print("Mesmo conjunto?", uf.conectados(0, 3))
+    print("Mesmo conjunto?", uf.find(0) == uf.find(1) == uf.find(2))
 
     arestas = [(0, 1), (1, 2), (2, 0)]
-    print(tem_ciclo(3, arestas))
+    print("Ciclíco?", tem_ciclo(3, arestas))
 
     arestas_sem_ciclo = [(0, 1), (1, 2), (2, 3)]
-    print(tem_ciclo(4, arestas_sem_ciclo))
+    print("Ciclíco?", tem_ciclo(4, arestas_sem_ciclo))
 
-    print(contar_componentes(6, [(0, 1), (1, 2), (3, 4)]))
+    print("Quantidade de componentes:", contar_componentes(6, [(0, 1), (1, 2), (3, 4)]))
 
 if __name__ == "__main__":
     main()
